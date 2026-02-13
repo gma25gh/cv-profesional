@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Presentación - Mauro Alegre</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --secondary: #97bc62;
+            --accent: #f4a261;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .container {
+            max-width: 21cm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .contact-bar {
+            background: var(--dark);
+            color: white;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-item a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .content-area {
+            padding: 1.8rem 2rem;
+        }
+
+        .date-section {
+            text-align: right;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .recipient {
+            margin-bottom: 1.5rem;
+            padding: 0.8rem;
+            background: var(--light-gray);
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .recipient p {
+            margin-bottom: 0;
+        }
+
+        .salutation {
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .content {
+            text-align: justify;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin: 1.5rem 0 0.8rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .competencies {
+            margin: 1rem 0;
+        }
+
+        .competencies ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .competencies li {
+            padding: 0.6rem 0 0.6rem 2rem;
+            margin-bottom: 0.4rem;
+            position: relative;
+            background: var(--light-gray);
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .competencies li:before {
+            content: "✓";
+            position: absolute;
+            left: 0.6rem;
+            top: 0.6rem;
+            color: white;
+            background: var(--primary);
+            width: 1.3rem;
+            height: 1.3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .value-proposition {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .value-proposition ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .value-proposition li {
+            padding-left: 1.3rem;
+            margin-bottom: 0.6rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .value-proposition li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .closing {
+            margin-top: 1.5rem;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .signature p {
+            margin-bottom: 0.3rem;
+        }
+
+        .signature .name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding: 1.2rem 2rem;
+            background: var(--light-gray);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.7rem 1.3rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .content-area {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .header {
+                padding: 1.5rem 2rem;
+            }
+
+            .contact-bar {
+                padding: 0.6rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .contact-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content-area {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ENCABEZADO -->
+        <div class="header"
+            style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+            <img src="FOTOS_PERSONALES/Perfil.jpg" alt="Mauro Alegre"
+                style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid white; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <div style="text-align: center;">
+                <h1>MAURO ALEGRE</h1>
+                <div class="subtitle">Arquitecto | Maestro Mayor de Obras | Calculista de Estructuras e Instalaciones
+                </div>
+            </div>
+        </div>
+
+        <!-- BARRA DE CONTACTO -->
+        <div class="contact-bar">
+            <div class="contact-item">
+                📍 Roldán 672, Resistencia, Chaco
+            </div>
+            <div class="contact-item">
+                📱 <a href="tel:+543624873262">362 487 3262</a>
+            </div>
+            <div class="contact-item">
+                ✉️ <a href="mailto:gmauroalegre@gmail.com">gmauroalegre@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                🌐 <a href="http://www.mauro-alegre.com" target="_blank">www.mauro-alegre.com</a>
+            </div>
+        </div>
+
+        <!-- ÁREA DE CONTENIDO -->
+        <div class="content-area">
+            <!-- FECHA -->
+            <div class="date-section">
+                Resistencia, Chaco, 13 de Febrero de 2026
+            </div>
+
+            <!-- DESTINATARIO -->
+            <div class="recipient">
+                <p><strong>A quien corresponda</strong></p>
+            </div>
+
+            <!-- SALUDO -->
+            <div class="salutation">
+                De mi mayor consideración:
+            </div>
+
+            <!-- CUERPO -->
+            <div class="content">
+                <p>
+                    Me dirijo a Usted/es con el propósito de presentarme profesionalmente y manifestar mi interés en
+                    <strong>Colaborar con su empresa</strong>. Con más de <strong>20 años de experiencia</strong> en
+                    arquitectura, cálculo estructural y dirección de obra, considero que mi perfil profesional puede
+                    aportar un valor significativo a su empresa.
+                </p>
+
+                <h3 class="section-title">Mis principales competencias incluyen:</h3>
+
+                <div class="competencies">
+                    <ul>
+                        <li><strong>Cálculo y Diseño Estructural:</strong> estructuras de hormigón armado. Dominio de
+                            software especializado (CYPECAD, AutoCAD).</li>
+                        <li><strong>Construcción en Madera:</strong> Diseño y ejecución de detalles constructivos, con
+                            enfoque en terminaciones de calidad artesanal.</li>
+                        <li><strong>Dirección y Supervisión de Obra:</strong> Gestión completa de proyectos con
+                            presencia real en obra.</li>
+                        <li><strong>Instalaciones Especiales:</strong> Diseño y cálculo de instalaciones eléctricas,
+                            sanitarias, gas y sistemas complementarios.</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Mi trayectoria profesional incluye más de <strong>100 proyectos ejecutados</strong>, abarcando desde
+                    viviendas unifamiliares hasta edificios de mediana complejidad, obras institucionales y comerciales.
+                </p>
+
+                <p>
+                    Adicionalmente, cuento con experiencia docente universitaria como Adscripto en la cátedra
+                    "Arquitectura V" de la FAU-UNNE (2016-2017), donde desarrollé contenidos sobre Diseño Estructural de
+                    Edificios.
+                </p>
+
+                <h3 class="section-title">¿Qué puedo aportar a su empresa?</h3>
+
+                <div class="value-proposition">
+                    <ul>
+                        <li>Solvencia técnica para resolver desafíos estructurales optimizando funcionalidad, seguridad
+                            y costos.</li>
+                        <li>Transparencia en la gestión, con presupuestos claros y comunicación directa con el cliente.
+                        </li>
+                        <li>Compromiso con la calidad: supervisión personalizada que garantiza terminaciones de alto
+                            nivel.</li>
+                        <li>Visión integral que une diseño arquitectónico, viabilidad estructural y ejecución práctica.
+                        </li>
+                    </ul>
+                </div>
+
+                <p>
+                    Quedo a su disposición para ampliar cualquier aspecto de mi formación y experiencia. Adjunto mi
+                    Curriculum Vitae completo para su consideración.
+                </p>
+            </div>
+
+            <!-- DESPEDIDA -->
+            <div class="closing">
+                <p>Sin otro particular, saludo a Ustedes muy atentamente.</p>
+            </div>
+
+            <!-- FIRMA -->
+            <div class="signature">
+                <p class="name">Arq. MAURO ALEGRE</p>
+                <p>362 487 3262</p>
+            </div>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN -->
+        <div class="action-buttons no-print">
+            <button class="btn btn-primary" onclick="window.print()">
+                🖨️ Imprimir / Guardar como PDF
+            </button>
+            <a href="cv_interactivo.html" class="btn btn-secondary">
+                📄 Ver CV Completo
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Mensaje de confirmación al imprimir
+        window.onbeforeprint = function () {
+            console.log('Preparando documento para impresión...');
+        };
+
+        window.onafterprint = function () {
+            console.log('Impresión completada o cancelada.');
+        };
+    </script>
+</body>
+
+</html>
