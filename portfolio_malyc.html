@@ -1,0 +1,1603 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de proyectos MALYc - Arquitectura & Construcción. Socio Fundador: Arq. Mauro Alegre">
+    <title>MALYc - Portfolio de Proyectos | Arquitectura de Confianza</title>
+    <style>
+        /* ===== VARIABLES Y RESET ===== */
+        :root {
+            --primary: #2c5f2d;
+            --primary-light: #97bc62ff;
+            --secondary: #d4af37;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER & HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"/></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* ===== FILTERS ===== */
+        .controls {
+            max-width: 1200px;
+            margin: -2rem auto 2rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+        }
+
+        .filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--gray-light);
+            background: var(--white);
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .results-info {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROJECTS GRID ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .project-card.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            height: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .project-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-year {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        /* ===== GALERÍA DE IMÁGENES ===== */
+        .project-gallery {
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .gallery-main {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: var(--gray-light);
+            overflow: hidden;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .gallery-image.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .gallery-nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-nav.prev {
+            left: 10px;
+        }
+
+        .gallery-nav.next {
+            right: 10px;
+        }
+
+        .gallery-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .gallery-thumbnails {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            overflow-x: auto;
+            padding: 4px 0;
+        }
+
+        .gallery-thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .gallery-thumbnail:hover {
+            border-color: var(--primary);
+        }
+
+        .gallery-thumbnail.active {
+            border-color: var(--primary);
+            opacity: 1;
+        }
+
+        .no-images {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            color: var(--gray);
+            font-size: 3rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .project-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .detail-icon {
+            margin-right: 0.75rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--gray);
+            margin-right: 0.5rem;
+        }
+
+        .detail-value {
+            color: var(--dark);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            margin: 1.5rem 0;
+        }
+
+        .contact-link {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            color: var(--white);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .control-card {
+                padding: 1.5rem;
+            }
+
+            .filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="logo">Mauro Alegre</h1>
+            <p class="tagline">Arquitectura & Construcción</p>
+            <p class="subtitle">Diseño, Cálculo Estructural y Ejecución de Obra con Presencia Real</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">+100</span>
+                    <span class="stat-label">Obras Realizadas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2004</span>
+                    <span class="stat-label">Desde el año</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+        <div class="control-card">
+            <h2
+                style="text-align: center; color: var(--primary); margin: 0 0 2rem 0; font-size: 2rem; font-weight: 700;">
+                Algunos Trabajos Realizados</h2>
+            <input type="text" class="search-box" id="searchInput"
+                placeholder="🔍 Buscar proyectos por nombre, ubicación o tipo de trabajo...">
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">📂 Todos</button>
+                <button class="filter-btn" data-filter="vivienda">🏠 Viviendas</button>
+                <button class="filter-btn" data-filter="comercial">🏢 Comercial</button>
+                <button class="filter-btn" data-filter="institucional">🏛️ Institucional</button>
+                <button class="filter-btn" data-filter="calculo">📐 Cálculo Estructural</button>
+                <button class="filter-btn" data-filter="salud">🏥 Salud</button>
+                <button class="filter-btn" data-filter="cultural">🎭 Cultural</button>
+            </div>
+
+            <p class="results-info" id="resultsInfo">Mostrando 48 proyectos</p>
+        </div>
+    </div>
+
+    <!-- PROJECTS GRID -->
+    <main class="container">
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Los proyectos se cargarán dinámicamente aquí -->
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">Mauro Alegre</div>
+            <p>Arquitectura & Construcción de Confianza</p>
+
+            <div class="footer-contact">
+                <a href="mailto:gmauroalegre@gmail.com" class="contact-link">✉️ gmauroalegre@gmail.com</a>
+                <a href="tel:+5493624873262" class="contact-link">📞 +54 362 487 3262</a>
+                <a href="https://www.instagram.com/malyc.arqyconst/" target="_blank" class="contact-link">📸
+                    @malyc.arqyconst</a>
+            </div>
+
+            <p class="footer-note">Resistencia, Chaco, Argentina | 2023-2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== DATOS DE PROYECTOS =====
+        const projects = [
+            // 2025
+            {
+                title: "CASA DE GOBIERNO – Chaco",
+                type: "institucional",
+                category: "Ejecución de Obra",
+                work: "Instalación Piso Flotante y Zócalos + Arreglos Previos",
+                surface: "200m²",
+                client: "ILAG Construcciones",
+                location: "Resistencia, Chaco",
+                year: "2025",
+                images: [
+                    "imagenes_proyectos/48_2025_casa_gobierno/Foto149.jpg",
+                    "imagenes_proyectos/48_2025_casa_gobierno/Foto150.jpg",
+                    "imagenes_proyectos/48_2025_casa_gobierno/Foto151.jpg",
+                    "imagenes_proyectos/48_2025_casa_gobierno/Foto152.jpg"
+                ],
+                folder: "48_2025_casa_gobierno"
+            },
+            {
+                title: "IAT – Instituto Atención Terapéutica",
+                type: "institucional",
+                category: "Ejecución de Obra",
+                work: "Instalación Revestimiento Símil Mármol",
+                surface: "20m²",
+                client: "Sra. Judith Forestello",
+                location: "Resistencia, Chaco",
+                year: "2025",
+                images: [
+                    "imagenes_proyectos/47_2025_iat_instituto/Foto142.jpg",
+                    "imagenes_proyectos/47_2025_iat_instituto/Foto143.jpg",
+                    "imagenes_proyectos/47_2025_iat_instituto/Foto144.jpg"
+                ],
+                folder: "47_2025_iat_instituto"
+            },
+            {
+                title: "NORDEMAQ S.A.",
+                type: "comercial",
+                category: "Ejecución de Obra",
+                work: "Instalación de Tabiquería + Revestimiento y Piso Tablas Madera",
+                surface: "15m²",
+                client: "Srta. Andrea Duret",
+                location: "Resistencia, Chaco",
+                year: "2025",
+                description: "Zona de Descanso Office + Bar Café",
+                images: [
+                    "imagenes_proyectos/47b_2025_nordemaq/Foto145.jpg",
+                    "imagenes_proyectos/47b_2025_nordemaq/Foto146.jpg",
+                    "imagenes_proyectos/47b_2025_nordemaq/Foto147.jpg",
+                    "imagenes_proyectos/47b_2025_nordemaq/Foto148.jpg"
+                ],
+                folder: "47b_2025_nordemaq"
+            },
+
+            // 2024
+            {
+                title: "Fauna – Dirección de Fauna",
+                type: "institucional",
+                category: "Ejecución de Obra",
+                work: "Arreglo Instalación Sanitaria",
+                client: "Dr. Eduardo Lecce",
+                location: "Resistencia, Chaco",
+                year: "2024",
+                images: [
+                    "imagenes_proyectos/46_2024_fauna/Foto139.jpg",
+                    "imagenes_proyectos/46_2024_fauna/Foto140.jpg",
+                    "imagenes_proyectos/46_2024_fauna/Foto141.jpg"
+                ],
+                folder: "46_2024_fauna"
+            },
+            {
+                title: "Spa Don Horacio",
+                type: "comercial",
+                category: "Ejecución de Obra",
+                work: "Remodelación + Arreglos y Terminaciones",
+                surface: "220m²",
+                client: "Sr. Horacio Maccio",
+                location: "Resistencia, Chaco",
+                year: "2024",
+                images: [
+                    "imagenes_proyectos/45_2024_spa_don_horacio/Foto136.jpeg",
+                    "imagenes_proyectos/45_2024_spa_don_horacio/Foto137.jpg",
+                    "imagenes_proyectos/45_2024_spa_don_horacio/Foto138.jpg"
+                ],
+                folder: "45_2024_spa_don_horacio"
+            },
+            {
+                title: "Galería Yerko",
+                type: "comercial",
+                category: "Ejecución de Obra",
+                work: "Obra Nueva + Arreglos y Terminaciones",
+                surface: "36m²",
+                client: "Yerko Osyguss",
+                location: "Resistencia, Chaco",
+                year: "2024",
+                images: [
+                    "imagenes_proyectos/44_2024_galeria_yerko/Foto132.jpg",
+                    "imagenes_proyectos/44_2024_galeria_yerko/Foto133.jpg",
+                    "imagenes_proyectos/44_2024_galeria_yerko/Foto134.jpg",
+                    "imagenes_proyectos/44_2024_galeria_yerko/Foto135.jpg"
+                ],
+                folder: "44_2024_galeria_yerko"
+            },
+            {
+                title: "Edificio Oersted 02",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "250m²",
+                client: "Oersted S.R.L. – Arq. Alfredo Alegre",
+                location: "Resistencia, Chaco",
+                year: "2024",
+                images: [
+                    "imagenes_proyectos/43_2024_edificio_oersted_02/Foto130.jpg",
+                    "imagenes_proyectos/43_2024_edificio_oersted_02/Foto131.jpg"
+                ],
+                folder: "43_2024_edificio_oersted_02"
+            },
+
+            // 2023
+            {
+                title: "Casa PF05",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Instalación Revestimiento Piedrafina",
+                surface: "36m²",
+                client: "Any Marano (Margen Estudio)",
+                location: "Resistencia, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/42_2023_casa_pf05/Foto127.jpg",
+                    "imagenes_proyectos/42_2023_casa_pf05/Foto128.jpg",
+                    "imagenes_proyectos/42_2023_casa_pf05/Foto129.jpg"
+                ],
+                folder: "42_2023_casa_pf05"
+            },
+            {
+                title: "Casa PF04",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Instalación Revestimiento Piedrafina",
+                surface: "12m²",
+                client: "Arq. Atina (Margen Estudio)",
+                location: "Resistencia, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/41_2023_casa_pf04/Foto125.jpg",
+                    "imagenes_proyectos/41_2023_casa_pf04/Foto126.jpg"
+                ],
+                folder: "41_2023_casa_pf04"
+            },
+            {
+                title: "Casa V13",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo - Vivienda Unifamiliar",
+                surface: "259.85m²",
+                client: "Arq. Nazarena Romero",
+                location: "Corrientes, Capital",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/40_2023_casa_v13/Foto123.jpg",
+                    "imagenes_proyectos/40_2023_casa_v13/Foto124.jpg"
+                ],
+                folder: "40_2023_casa_v13"
+            },
+            {
+                title: "Casa PF03",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Instalación Revestimiento Piedrafina",
+                surface: "30m²",
+                client: "Margen Estudio",
+                location: "Resistencia, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/39_2023_casa_pf03/Foto121.jpg",
+                    "imagenes_proyectos/39_2023_casa_pf03/Foto122.jpg"
+                ],
+                folder: "39_2023_casa_pf03"
+            },
+            {
+                title: "U.N.C.A.U.S – Universidad Nacional del Chaco Austral",
+                type: "institucional",
+                category: "Ejecución de Obra",
+                work: "Refacción – Instalaciones Eléctricas y Sanitarias",
+                client: "Sr. Sebastián Conti",
+                location: "Resistencia, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/38_2023_uncaus/Foto118.jpg",
+                    "imagenes_proyectos/38_2023_uncaus/Foto119.jpg",
+                    "imagenes_proyectos/38_2023_uncaus/Foto120.jpg"
+                ],
+                folder: "38_2023_uncaus"
+            },
+            {
+                title: "Casa PF02",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Instalación Revestimiento Piedrafina",
+                surface: "54m²",
+                client: "Margen Estudio",
+                location: "Resistencia, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/37_2023_casa_pf02/Foto115.jpg",
+                    "imagenes_proyectos/37_2023_casa_pf02/Foto116.jpg",
+                    "imagenes_proyectos/37_2023_casa_pf02/Foto117.jpg"
+                ],
+                folder: "37_2023_casa_pf02"
+            },
+            {
+                title: "C.E.R.O. – Centro Especializado en Rehabilitación Odontológica",
+                type: "salud",
+                category: "Ejecución de Obra",
+                work: "Remodelación",
+                surface: "27m²",
+                client: "Dr. Alberto Omar Ghiggeri - Dr. Lucas Miguel Kuray",
+                location: "Resistencia, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/36_2023_cero_rehabilitacion/Foto111.jpeg",
+                    "imagenes_proyectos/36_2023_cero_rehabilitacion/Foto112.jpg",
+                    "imagenes_proyectos/36_2023_cero_rehabilitacion/Foto113.jpg",
+                    "imagenes_proyectos/36_2023_cero_rehabilitacion/Foto114.jpg"
+                ],
+                folder: "36_2023_cero_rehabilitacion"
+            },
+            {
+                title: "Casa PF01",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Instalación Revestimiento Piedrafina",
+                surface: "27m²",
+                client: "Margen Estudio",
+                location: "Puerto Tirol, Chaco",
+                year: "2023",
+                images: [
+                    "imagenes_proyectos/35_2023_casa_pf01/Foto108.jpg",
+                    "imagenes_proyectos/35_2023_casa_pf01/Foto109.jpg",
+                    "imagenes_proyectos/35_2023_casa_pf01/Foto110.jpg"
+                ],
+                folder: "35_2023_casa_pf01"
+            },
+
+            // 2022
+            {
+                title: "VOLKA - Sports",
+                type: "comercial",
+                category: "Ejecución de Obra",
+                work: "Indumentaria Deportiva",
+                surface: "52.38m²",
+                client: "Sra. Paula Sanchez",
+                location: "Resistencia, Chaco",
+                year: "2022",
+                images: [
+                    "imagenes_proyectos/34_2022_volka_sports/Foto105.jpg",
+                    "imagenes_proyectos/34_2022_volka_sports/Foto106.jpg",
+                    "imagenes_proyectos/34_2022_volka_sports/Foto107.jpg"
+                ],
+                folder: "34_2022_volka_sports"
+            },
+            {
+                title: "Casa CW01",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "237.22m²",
+                client: "Arq. Nazarena Romero",
+                location: "Corrientes, Capital",
+                year: "2022",
+                images: [
+                    "imagenes_proyectos/33_2022_casa_cw01/Foto102.jpg",
+                    "imagenes_proyectos/33_2022_casa_cw01/Foto103.jpg",
+                    "imagenes_proyectos/33_2022_casa_cw01/Foto104.jpg"
+                ],
+                folder: "33_2022_casa_cw01"
+            },
+            {
+                title: "Casa V45",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "550.53m²",
+                client: "Estudio INARQ – Arq. María Del Carmen Languazco",
+                location: "Corrientes, Capital",
+                year: "2022",
+                images: [
+                    "imagenes_proyectos/32_2022_casa_v45/Foto100.jpg",
+                    "imagenes_proyectos/32_2022_casa_v45/Foto101.jpg",
+                    "imagenes_proyectos/32_2022_casa_v45/Foto99.jpg"
+                ],
+                folder: "32_2022_casa_v45"
+            },
+            {
+                title: "Casa NC",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Obra",
+                surface: "117.06m²",
+                client: "Sr. Nahuel Cettour",
+                location: "Resistencia, Chaco",
+                year: "2022-2023",
+                images: [
+                    "imagenes_proyectos/31_2022_casa_nc/Foto97.jpg",
+                    "imagenes_proyectos/31_2022_casa_nc/Foto98.jpg"
+                ],
+                folder: "31_2022_casa_nc"
+            },
+
+            // 2021
+            {
+                title: "Casa A&P",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Obra",
+                surface: "69.35m²",
+                client: "Sr. Andrés Romero y Dra. Paula Quiroz",
+                location: "Puerto Tirol, Chaco",
+                year: "2021",
+                description: "Proyecto y Dirección: Arq. Stephanie Hisgen - Arq. Alejandra Romero",
+                images: [
+                    "imagenes_proyectos/30_2021_casa_ap/Foto93.jpg",
+                    "imagenes_proyectos/30_2021_casa_ap/Foto94.jpg",
+                    "imagenes_proyectos/30_2021_casa_ap/Foto95.jpg",
+                    "imagenes_proyectos/30_2021_casa_ap/Foto96.jpg"
+                ],
+                folder: "30_2021_casa_ap"
+            },
+            {
+                title: "Casa 9.8",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "422.60m²",
+                client: "Arq. Gabriel Romero",
+                location: "Corrientes, Capital",
+                year: "2021",
+                images: [
+                    "imagenes_proyectos/29_2021_casa_98/Foto91.jpg",
+                    "imagenes_proyectos/29_2021_casa_98/Foto92.jpg"
+                ],
+                folder: "29_2021_casa_98"
+            },
+            {
+                title: "Galería WL",
+                type: "comercial",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Obra",
+                surface: "15m²",
+                client: "Músico Walter Lezcano",
+                location: "Resistencia, Chaco",
+                year: "2021",
+                images: [
+                    "imagenes_proyectos/28_2021_galeria_wl/Foto89.jpg",
+                    "imagenes_proyectos/28_2021_galeria_wl/Foto90.jpg"
+                ],
+                folder: "28_2021_galeria_wl"
+            },
+            {
+                title: "Casa PLP",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Obra",
+                surface: "120m²",
+                client: "Sr. Luigi Lavia",
+                location: "Resistencia, Chaco",
+                year: "2021-2022",
+                images: [
+                    "imagenes_proyectos/27_2021_casa_plp/Foto83.jpg",
+                    "imagenes_proyectos/27_2021_casa_plp/Foto84.jpg",
+                    "imagenes_proyectos/27_2021_casa_plp/Foto85.jpg",
+                    "imagenes_proyectos/27_2021_casa_plp/Foto86.jpg",
+                    "imagenes_proyectos/27_2021_casa_plp/Foto87.jpg",
+                    "imagenes_proyectos/27_2021_casa_plp/Foto88.jpg"
+                ],
+                folder: "27_2021_casa_plp"
+            },
+            {
+                title: "Casa SC",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "365m²",
+                client: "Arq. María Del Carmen Languazco",
+                location: "Corrientes, Capital",
+                year: "2021",
+                images: [
+                    "imagenes_proyectos/26_2021_casa_sc/Foto80.jpg",
+                    "imagenes_proyectos/26_2021_casa_sc/Foto81.jpg",
+                    "imagenes_proyectos/26_2021_casa_sc/Foto82.jpg"
+                ],
+                folder: "26_2021_casa_sc"
+            },
+
+            // 2020
+            {
+                title: "Departamentos Balbuena",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "2.280m²",
+                client: "Arq. María Del Carmen Languazco",
+                location: "Corrientes, Capital",
+                year: "2020",
+                images: [
+                    "imagenes_proyectos/25_2020_departamentos_balbuena/Foto77.jpg",
+                    "imagenes_proyectos/25_2020_departamentos_balbuena/Foto78.jpg",
+                    "imagenes_proyectos/25_2020_departamentos_balbuena/Foto79.jpg"
+                ],
+                folder: "25_2020_departamentos_balbuena"
+            },
+            {
+                title: "Departamentos Esquivel",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "230m²",
+                client: "Arq. Gabriel Romero",
+                location: "Corrientes, Capital",
+                year: "2020",
+                images: [
+                    "imagenes_proyectos/24_2020_departamentos_esquivel/Foto75.jpg",
+                    "imagenes_proyectos/24_2020_departamentos_esquivel/Foto76.jpg"
+                ],
+                folder: "24_2020_departamentos_esquivel"
+            },
+
+            // 2019-2020
+            {
+                title: "Casa Los Hacheros",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Obra - Primera Etapa",
+                surface: "260m²",
+                client: "Esc. Daniel Judis - Sr. Sebastian Conti",
+                location: "Resistencia, Chaco",
+                year: "2019-2020",
+                images: [
+                    "imagenes_proyectos/23_2019_casa_los_hacheros/Foto71.jpg",
+                    "imagenes_proyectos/23_2019_casa_los_hacheros/Foto72.jpg",
+                    "imagenes_proyectos/23_2019_casa_los_hacheros/Foto73.jpg",
+                    "imagenes_proyectos/23_2019_casa_los_hacheros/Foto74.jpg"
+                ],
+                folder: "23_2019_casa_los_hacheros"
+            },
+
+            // 2018-2019
+            {
+                title: "Casa Bermejo",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Refacción",
+                surface: "500m²",
+                client: "Sr. Eduardo y Sra. Vanesa",
+                location: "Resistencia, Chaco",
+                year: "2018",
+                images: [
+                    "imagenes_proyectos/22_2018_casa_bermejo/Foto68.jpg",
+                    "imagenes_proyectos/22_2018_casa_bermejo/Foto69.jpg",
+                    "imagenes_proyectos/22_2018_casa_bermejo/Foto70.jpg"
+                ],
+                folder: "22_2018_casa_bermejo"
+            },
+            {
+                title: "Quincho Benitez",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Obra - Primera Etapa",
+                surface: "40m²",
+                client: "Sra. Viviana",
+                location: "Colonia Benitez, Chaco",
+                year: "2019",
+                images: [
+                    "imagenes_proyectos/21_2019_quincho_benitez/Foto65.jpg",
+                    "imagenes_proyectos/21_2019_quincho_benitez/Foto66.jpg",
+                    "imagenes_proyectos/21_2019_quincho_benitez/Foto67.jpg"
+                ],
+                folder: "21_2019_quincho_benitez"
+            },
+            {
+                title: "Casa José Fontana",
+                type: "vivienda",
+                category: "Proyecto y Ejecución",
+                work: "Proyecto y Ejecución de Obra - Primera Etapa",
+                surface: "35m²",
+                client: "Ing. Elect. José Gimenez",
+                location: "Fontana, Chaco",
+                year: "2018",
+                images: [
+                    "imagenes_proyectos/20_2018_casa_jose_fontana/Foto62.jpg",
+                    "imagenes_proyectos/20_2018_casa_jose_fontana/Foto63.jpg",
+                    "imagenes_proyectos/20_2018_casa_jose_fontana/Foto64.jpg"
+                ],
+                folder: "20_2018_casa_jose_fontana"
+            },
+
+            // 2017
+            {
+                title: "Museo Melli",
+                type: "cultural",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "158.06m²",
+                client: "Estudio B&L",
+                location: "Resistencia, Chaco",
+                year: "2017",
+                images: [
+                    "imagenes_proyectos/19_2017_museo_melli/Foto59.jpg",
+                    "imagenes_proyectos/19_2017_museo_melli/Foto60.jpg",
+                    "imagenes_proyectos/19_2017_museo_melli/Foto61.jpg"
+                ],
+                folder: "19_2017_museo_melli"
+            },
+            {
+                title: "Vivienda Huang Shao Tie",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "633m²",
+                client: "Arq. Gabriel Romero",
+                location: "Bella Vista, Corrientes",
+                year: "2017",
+                images: [
+                    "imagenes_proyectos/18_2017_vivienda_huang_shao_tie/Foto56.jpg",
+                    "imagenes_proyectos/18_2017_vivienda_huang_shao_tie/Foto57.jpg",
+                    "imagenes_proyectos/18_2017_vivienda_huang_shao_tie/Foto58.jpg"
+                ],
+                folder: "18_2017_vivienda_huang_shao_tie"
+            },
+            {
+                title: "Edificio Colón",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "1.014.47m²",
+                client: "Estudio B&L",
+                location: "Resistencia, Chaco",
+                year: "2017",
+                images: [
+                    "imagenes_proyectos/17_2017_edificio_colon/Foto53.jpg",
+                    "imagenes_proyectos/17_2017_edificio_colon/Foto54.jpg",
+                    "imagenes_proyectos/17_2017_edificio_colon/Foto55.jpg"
+                ],
+                folder: "17_2017_edificio_colon"
+            },
+            {
+                title: "Petra III",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "3.957.15m²",
+                client: "Arq. Darío Basabilbaso",
+                location: "Formosa, Capital",
+                year: "2017",
+                images: [
+                    "imagenes_proyectos/16_2017_petra_iii/Foto49.jpg",
+                    "imagenes_proyectos/16_2017_petra_iii/Foto50.jpg",
+                    "imagenes_proyectos/16_2017_petra_iii/Foto51.jpg",
+                    "imagenes_proyectos/16_2017_petra_iii/Foto52.jpg"
+                ],
+                folder: "16_2017_petra_iii"
+            },
+            {
+                title: "Edificio Thames",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "1.354.82m²",
+                client: "Estudio B&L",
+                location: "Resistencia, Chaco",
+                year: "2017",
+                images: [
+                    "imagenes_proyectos/15_2017_edificio_thames/Foto46.jpg",
+                    "imagenes_proyectos/15_2017_edificio_thames/Foto47.jpg",
+                    "imagenes_proyectos/15_2017_edificio_thames/Foto48.jpg"
+                ],
+                folder: "15_2017_edificio_thames"
+            },
+
+            // 2016
+            {
+                title: "Piscina Basabilbaso",
+                type: "obra_especial",
+                category: "Cálculo Estructural",
+                work: "Cálculo Estructural Piscina Hormigón Armado",
+                surface: "23.10m²",
+                client: "Arq. Darío Basabilbaso",
+                location: "Resistencia, Chaco",
+                year: "2016",
+                images: [
+                    "imagenes_proyectos/14_2016_piscina_basabilbaso/Foto44.jpg",
+                    "imagenes_proyectos/14_2016_piscina_basabilbaso/Foto45.jpg"
+                ],
+                folder: "14_2016_piscina_basabilbaso"
+            },
+            {
+                title: "Cocheras Fenix II",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "385.39m²",
+                client: "Estudio B&L",
+                location: "Formosa, Capital",
+                year: "2016",
+                images: [
+                    "imagenes_proyectos/13_2016_cocheras_fenix_ii/Foto41.jpg",
+                    "imagenes_proyectos/13_2016_cocheras_fenix_ii/Foto42.jpg",
+                    "imagenes_proyectos/13_2016_cocheras_fenix_ii/Foto43.jpg"
+                ],
+                folder: "13_2016_cocheras_fenix_ii"
+            },
+            {
+                title: "Sanatorio San Roque",
+                type: "salud",
+                category: "Cálculo Estructural",
+                work: "Cálculo Estructural - Ampliación de Obra",
+                surface: "260m²",
+                client: "Estudio Inarq - Arq. María Del Carmen Languasco",
+                location: "Curuzu Cuatia, Corrientes",
+                year: "2016",
+                images: [
+                    "imagenes_proyectos/12_2016_sanatorio_san_roque/foto38.jpg",
+                    "imagenes_proyectos/12_2016_sanatorio_san_roque/foto39.jpg",
+                    "imagenes_proyectos/12_2016_sanatorio_san_roque/foto40.jpg"
+                ],
+                folder: "12_2016_sanatorio_san_roque"
+            },
+
+            // 2015
+            {
+                title: "Edificio Alberdi",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "2.560m²",
+                client: "Arq. Hugo Leguizamón | Arq. Darío Basabilbaso",
+                location: "Resistencia, Chaco",
+                year: "2015",
+                images: [
+                    "imagenes_proyectos/11_2015_edificio_alberdi/foto35.jpg",
+                    "imagenes_proyectos/11_2015_edificio_alberdi/foto36.jpg",
+                    "imagenes_proyectos/11_2015_edificio_alberdi/foto37.jpg"
+                ],
+                folder: "11_2015_edificio_alberdi"
+            },
+            {
+                title: "Oficinas San Martín",
+                type: "comercial",
+                category: "Proyecto",
+                work: "Proyecto de Remodelación y Ampliación",
+                surface: "555m²",
+                location: "Resistencia, Chaco",
+                year: "2015",
+                images: [
+                    "imagenes_proyectos/09_2015_oficinas_san_martin/foto29.jpg",
+                    "imagenes_proyectos/09_2015_oficinas_san_martin/foto30.jpg",
+                    "imagenes_proyectos/09_2015_oficinas_san_martin/foto31.jpg"
+                ],
+                folder: "09_2015_oficinas_san_martin"
+            },
+            {
+                title: "Club Empleados Banco Nación",
+                type: "institucional",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "212.70m²",
+                client: "Arq. María Del Carmen Languasco",
+                location: "Corrientes, Capital",
+                year: "2015",
+                images: [
+                    "imagenes_proyectos/07_2015_club_empleados_banco_nacion/foto23.jpg",
+                    "imagenes_proyectos/07_2015_club_empleados_banco_nacion/foto24.jpg",
+                    "imagenes_proyectos/07_2015_club_empleados_banco_nacion/foto25.jpg"
+                ],
+                folder: "07_2015_club_empleados_banco_nacion"
+            },
+
+            // 2014-2015
+            {
+                title: "Camino al Puerto",
+                type: "proyecto_urbano",
+                category: "Proyecto",
+                work: "Proyecto de Intervención Urbana - Anteproyecto",
+                description: "Trabajo Final de Carrera",
+                location: "Reconquista, Santa Fe",
+                year: "2014-2015",
+                images: [
+                    "imagenes_proyectos/10_2014_camino_al_puerto/foto32.png",
+                    "imagenes_proyectos/10_2014_camino_al_puerto/foto33.png",
+                    "imagenes_proyectos/10_2014_camino_al_puerto/foto34.png"
+                ],
+                folder: "10_2014_camino_al_puerto"
+            },
+
+            // 2013
+            {
+                title: "Policonsultorios Hobecker - Alegre",
+                type: "salud",
+                category: "Proyecto",
+                work: "Proyecto de Consultorios Médicos y Odontológicos",
+                surface: "376.70m²",
+                client: "En conjunción con Arq. María Del Carmen Languasco",
+                location: "Posadas, Misiones",
+                year: "2013",
+                images: [
+                    "imagenes_proyectos/08_2013_policonsultorios_hobecker_alegre/foto26.png",
+                    "imagenes_proyectos/08_2013_policonsultorios_hobecker_alegre/foto27.jpg",
+                    "imagenes_proyectos/08_2013_policonsultorios_hobecker_alegre/foto28.png"
+                ],
+                folder: "08_2013_policonsultorios_hobecker_alegre"
+            },
+            {
+                title: "Edificio Empresa Oersted",
+                type: "calculo",
+                category: "Cálculo Estructural",
+                work: "Cálculo estructural completo",
+                surface: "450m²",
+                client: "Empresa Oersted S.R.L. - Arq. Alfredo Alegre",
+                location: "Resistencia, Chaco",
+                year: "2013",
+                images: [
+                    "imagenes_proyectos/06_2013_edificio_oersted/foto20.jpg",
+                    "imagenes_proyectos/06_2013_edificio_oersted/foto21.jpg",
+                    "imagenes_proyectos/06_2013_edificio_oersted/foto22.jpg"
+                ],
+                folder: "06_2013_edificio_oersted"
+            },
+
+            // 2012
+            {
+                title: "Quincho Montiel",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Construcción + Terminaciones Vivienda",
+                surface: "140m²",
+                location: "Resistencia, Chaco",
+                year: "2012",
+                images: [
+                    "imagenes_proyectos/05_2012_quincho_montiel/foto16.jpg",
+                    "imagenes_proyectos/05_2012_quincho_montiel/foto17.jpg",
+                    "imagenes_proyectos/05_2012_quincho_montiel/foto18.jpg",
+                    "imagenes_proyectos/05_2012_quincho_montiel/foto19.JPG"
+                ],
+                folder: "05_2012_quincho_montiel"
+            },
+
+            // 2011
+            {
+                title: "Viviendas Barrio Judiciales",
+                type: "vivienda",
+                category: "Ejecución de Obra",
+                work: "Ejecución de Tareas Faltantes en 6 Viviendas",
+                surface: "328.47m²",
+                client: "Empresa Constructora E.C.S.A.",
+                location: "Resistencia, Chaco",
+                year: "2011",
+                images: [
+                    "imagenes_proyectos/04_2011_viviendas_barrio_judiciales/foto12.jpg",
+                    "imagenes_proyectos/04_2011_viviendas_barrio_judiciales/foto13.jpg",
+                    "imagenes_proyectos/04_2011_viviendas_barrio_judiciales/foto14.jpg",
+                    "imagenes_proyectos/04_2011_viviendas_barrio_judiciales/foto15.jpg"
+                ],
+                folder: "04_2011_viviendas_barrio_judiciales"
+            },
+            {
+                title: "Vivienda Los Troncos",
+                type: "vivienda",
+                category: "Proyecto, Cálculo y Ejecución",
+                work: "Proyecto, Cálculo y Ejecución de Obra",
+                surface: "123.20m²",
+                client: "Empresa Oersted S.R.L. - Arq. Alfredo Alegre",
+                location: "Resistencia, Chaco",
+                year: "2011",
+                images: [
+                    "imagenes_proyectos/03_2011_vivienda_los_troncos/foto10.JPG",
+                    "imagenes_proyectos/03_2011_vivienda_los_troncos/foto11.JPG",
+                    "imagenes_proyectos/03_2011_vivienda_los_troncos/foto9.jpg"
+                ],
+                folder: "03_2011_vivienda_los_troncos"
+            },
+
+            // 2010
+            {
+                title: "Consultorios Odontológicos Marconi",
+                type: "salud",
+                category: "Proyecto, Cálculo y Dirección",
+                work: "Proyecto, Cálculo y Dirección",
+                surface: "555m²",
+                client: "Empresa Oersted S.R.L. - Arq. Alfredo Alegre",
+                location: "Resistencia, Chaco",
+                year: "2010",
+                images: [
+                    "imagenes_proyectos/02_2010_consultorios_marconi/foto5.jpg",
+                    "imagenes_proyectos/02_2010_consultorios_marconi/foto6.jpg",
+                    "imagenes_proyectos/02_2010_consultorios_marconi/foto7.JPG",
+                    "imagenes_proyectos/02_2010_consultorios_marconi/foto8.jpg"
+                ],
+                folder: "02_2010_consultorios_marconi"
+            },
+
+            // 2009-2010
+            {
+                title: "Casa Hobecker - Alegre",
+                type: "vivienda",
+                category: "Proyecto y Dirección",
+                work: "Proyecto y Dirección",
+                surface: "220m²",
+                location: "Posadas, Misiones",
+                year: "2009-2010",
+                images: [
+                    "imagenes_proyectos/01_2009_casa_hobecker_alegre/foto1.jpg",
+                    "imagenes_proyectos/01_2009_casa_hobecker_alegre/foto2.jpg",
+                    "imagenes_proyectos/01_2009_casa_hobecker_alegre/foto3.jpg",
+                    "imagenes_proyectos/01_2009_casa_hobecker_alegre/foto4.jpg"
+                ],
+                folder: "01_2009_casa_hobecker_alegre"
+            }
+        ];
+
+        // ===== FUNCIONES =====
+        function createProjectCard(project, index) {
+            // Generar galería de imágenes o placeholder
+            const galleryHTML = project.images && project.images.length > 0 ? `
+                <div class="project-gallery">
+                    <div class="gallery-main">
+                        ${project.images.map((img, idx) => `
+                            <img src="${img}" alt="${project.title} - Foto ${idx + 1}" 
+                                 class="gallery-image ${idx === 0 ? 'active' : ''}" 
+                                 data-index="${idx}">
+                        `).join('')}
+                        
+                        ${project.images.length > 1 ? `
+                            <button class="gallery-nav prev" onclick="navigateGallery(${index}, -1)">‹</button>
+                            <button class="gallery-nav next" onclick="navigateGallery(${index}, 1)">›</button>
+                            
+                            <div class="gallery-dots">
+                                ${project.images.map((_, idx) => `
+                                    <span class="gallery-dot ${idx === 0 ? 'active' : ''}" 
+                                          onclick="goToSlide(${index}, ${idx})"></span>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    ${project.images.length > 1 ? `
+                        <div class="gallery-thumbnails">
+                            ${project.images.map((img, idx) => `
+                                <img src="${img}" alt="Thumbnail ${idx + 1}" 
+                                     class="gallery-thumbnail ${idx === 0 ? 'active' : ''}" 
+                                     onclick="goToSlide(${index}, ${idx})">
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            ` : `
+                <div class="no-images">📸</div>
+            `;
+
+            return `
+                <div class="project-card" data-type="${project.type}" data-index="${index}">
+                    <div class="project-header">
+                        <span class="project-type">${project.category}</span>
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-year">${project.year}</p>
+                    </div>
+                    <div class="project-body">
+                        ${galleryHTML}
+                        
+                        ${project.description ? `<p style="margin-bottom: 1rem; color: var(--gray);">${project.description}</p>` : ''}
+                        
+                        <div class="project-detail">
+                            <span class="detail-icon">🔨</span>
+                            <div>
+                                <span class="detail-label">Trabajo:</span>
+                                <span class="detail-value">${project.work}</span>
+                            </div>
+                        </div>
+                        
+                        ${project.surface ? `
+                        <div class="project-detail">
+                            <span class="detail-icon">📏</span>
+                            <div>
+                                <span class="detail-label">Superficie:</span>
+                                <span class="detail-value">${project.surface}</span>
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        ${project.client ? `
+                        <div class="project-detail">
+                            <span class="detail-icon">👤</span>
+                            <div>
+                                <span class="detail-label">Cliente:</span>
+                                <span class="detail-value">${project.client}</span>
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        <div class="project-detail">
+                            <span class="detail-icon">📍</span>
+                            <div>
+                                <span class="detail-label">Ubicación:</span>
+                                <span class="detail-value">${project.location}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProjects(filteredProjects = projects) {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = filteredProjects.map((project, index) => createProjectCard(project, index)).join('');
+            updateResultsInfo(filteredProjects.length);
+        }
+
+        function updateResultsInfo(count) {
+            const info = document.getElementById('resultsInfo');
+            info.textContent = `Mostrando ${count} proyecto${count !== 1 ? 's' : ''}`;
+        }
+
+        function filterProjects(type) {
+            if (type === 'all') {
+                renderProjects();
+            } else {
+                const filtered = projects.filter(p => p.type === type);
+                renderProjects(filtered);
+            }
+        }
+
+        function searchProjects(query) {
+            if (!query) {
+                renderProjects();
+                return;
+            }
+
+            const filtered = projects.filter(p => {
+                const searchText = `${p.title} ${p.work} ${p.location} ${p.category} ${p.description || ''}`.toLowerCase();
+                return searchText.includes(query.toLowerCase());
+            });
+
+            renderProjects(filtered);
+        }
+
+        // ===== EVENT LISTENERS =====
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterProjects(btn.dataset.filter);
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchProjects(e.target.value);
+        });
+
+        // ===== GALLERY NAVIGATION =====
+        function navigateGallery(cardIndex, direction) {
+            const card = document.querySelector(`.project-card[data-index="${cardIndex}"]`);
+            if (!card) return;
+
+            const images = card.querySelectorAll('.gallery-image');
+            const dots = card.querySelectorAll('.gallery-dot');
+            const thumbnails = card.querySelectorAll('.gallery-thumbnail');
+
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            let newIndex = currentIndex + direction;
+
+            if (newIndex < 0) newIndex = images.length - 1;
+            if (newIndex >= images.length) newIndex = 0;
+
+            goToSlide(cardIndex, newIndex);
+        }
+
+        function goToSlide(cardIndex, slideIndex) {
+            const card = document.querySelector(`.project-card[data-index="${cardIndex}"]`);
+            if (!card) return;
+
+            const images = card.querySelectorAll('.gallery-image');
+            const dots = card.querySelectorAll('.gallery-dot');
+            const thumbnails = card.querySelectorAll('.gallery-thumbnail');
+
+            // Actualizar imágenes
+            images.forEach((img, idx) => {
+                img.classList.toggle('active', idx === slideIndex);
+            });
+
+            // Actualizar dots
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === slideIndex);
+            });
+
+            // Actualizar thumbnails
+            thumbnails.forEach((thumb, idx) => {
+                thumb.classList.toggle('active', idx === slideIndex);
+            });
+        }
+
+        // ===== INIT =====
+        renderProjects();
+    </script>
+
+</body>
+
+</html>

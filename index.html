@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mauro Alegre - Arquitecto, Maestro Mayor de Obras y Calculista de Estructuras. CV profesional, carta de presentación y portfolio de proyectos.">
+    <meta name="keywords" content="Mauro Alegre, Arquitecto, Resistencia Chaco, Cálculo Estructural, Construcción">
+    <title>Mauro Alegre - Arquitecto & Constructor | Resistencia, Chaco</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --secondary: #97bc62;
+            --accent: #f4a261;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(45, 106, 79, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--dark);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-quick {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .contact-quick a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-quick a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* CARDS SECTION */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 106, 79, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* STATS SECTION */
+        .stats {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--gray);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-quick {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <img src="FOTOS_PERSONALES/Perfil.jpg" alt="Mauro Alegre" class="profile-photo" style="object-fit: cover;">
+            <h1>MAURO ALEGRE</h1>
+            <p class="subtitle">Arquitecto | Maestro Mayor de Obras | Calculista de Estructuras</p>
+            <p class="tagline">
+                Con más de 20 años de experiencia en arquitectura, cálculo estructural y dirección de obra.
+                Especializado en construcción en madera, diseño estructural y gestión integral de proyectos.
+            </p>
+            <div class="contact-quick">
+                <a href="tel:+543624873262">📱 362 487 3262</a>
+                <a href="mailto:gmauroalegre@gmail.com">✉️ gmauroalegre@gmail.com</a>
+                <a href="http://www.mauro-alegre.com" target="_blank">🌐 www.mauro-alegre.com</a>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Proyectos Ejecutados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2</h3>
+                    <p>Títulos Profesionales</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARDS -->
+        <section class="cards-grid">
+            <!-- CV CARD -->
+            <div class="card" onclick="window.location.href='cv_interactivo.html'">
+                <div class="card-icon">📄</div>
+                <h2>Curriculum Vitae</h2>
+                <p>
+                    Mi trayectoria profesional completa: formación académica, experiencia laboral,
+                    aptitudes técnicas y experiencia docente.
+                </p>
+                <a href="cv_interactivo.html" class="btn">Ver CV Completo</a>
+            </div>
+
+            <!-- CARTA CARD -->
+            <div class="card" onclick="window.location.href='carta_presentacion.html'">
+                <div class="card-icon">📧</div>
+                <h2>Carta de Presentación</h2>
+                <p>
+                    Mi propuesta de valor, competencias principales y qué puedo aportar
+                    a tu empresa o proyecto.
+                </p>
+                <a href="carta_presentacion.html" class="btn">Leer Carta</a>
+            </div>
+
+            <!-- PORTFOLIO CARD -->
+            <div class="card" onclick="window.location.href='portfolio_malyc.html'">
+                <div class="card-icon">🏗️</div>
+                <h2>Portfolio de Proyectos</h2>
+                <p>
+                    Galería visual de mis trabajos realizados: viviendas, edificios,
+                    obras comerciales e institucionales.
+                </p>
+                <a href="portfolio_malyc.html" class="btn">Explorar Portfolio</a>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="hero" style="margin-bottom: 2rem;">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">¿Buscás sumar un profesional a tu equipo?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--gray);">
+                Estoy disponible para integrar equipos de trabajo en empresas constructoras
+                y estudios de arquitectura. Con experiencia en cálculo estructural,
+                dirección de obra y diseño arquitectónico.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:gmauroalegre@gmail.com?subject=Oportunidad%20Laboral" class="btn">
+                    ✉️ Contactar por Email
+                </a>
+                <a href="https://wa.me/543624873262?text=Hola%20Mauro,%20revisé%20tu%20CV%20y%20me%20gustaría%20conversar"
+                    class="btn btn-secondary" target="_blank">
+                    💬 Escribir por WhatsApp
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Mauro Alegre - Todos los derechos reservados</p>
+        <p>Resistencia, Chaco, Argentina</p>
+    </footer>
+
+    <script>
+        // Analytics básico (opcional)
+        console.log('Landing page cargada exitosamente');
+    </script>
+</body>
+
+</html>
